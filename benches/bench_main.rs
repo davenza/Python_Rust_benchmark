@@ -47,7 +47,6 @@ fn product(c: &mut Criterion) {
         let ones = random_array::<f64>(shape);
         // Expected cardinality of the product of the two arrays.
         let expected_card = vec![2; size + new_axes];
-
         b.iter_with_setup(|| (zeros.clone(), ones.clone(), expected_card.clone()),
                           |(zeros, ones, expected_card)| {
                                 let zeros_view = insert_axes_first(&zeros,new_axes);
